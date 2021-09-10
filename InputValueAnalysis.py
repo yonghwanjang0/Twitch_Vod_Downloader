@@ -1,4 +1,3 @@
-from re import L
 from GetPlaylist import GetPlaylist
 
 
@@ -8,9 +7,7 @@ class InputValueAnalysis:
         self.input_value_type = None
 
         self.playlist_path = None
-        self.key = None
         self.vod_id = None
-        self.popup = None
 
         self.playlist_getter = GetPlaylist()
 
