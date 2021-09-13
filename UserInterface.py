@@ -42,10 +42,12 @@ class CentralWidget(QWidget):
         self.temp_folder_display_label = QLabel(
             "temp files save folder path")
 
+        self.check_button = QPushButton("Check Vod (C)", self)
         self.start_button = QPushButton("Download Start (F2)", self)
         self.stop_button = QPushButton("Download Stop (Shift + F4)", self)
         self.option_button = QPushButton("Option (F10)", self)
 
+        self.check_button.setMinimumHeight(80)
         self.start_button.setMinimumHeight(80)
         self.stop_button.setMinimumHeight(80)
         self.option_button.setMinimumHeight(80)
@@ -84,6 +86,7 @@ class CentralWidget(QWidget):
 
         # button layout
         button_layout = QHBoxLayout()
+        button_layout.addWidget(self.check_button)
         button_layout.addWidget(self.start_button)
         button_layout.addWidget(self.stop_button)
         button_layout.addWidget(self.option_button)
