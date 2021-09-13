@@ -4,7 +4,7 @@ import os
 import asyncio
 
 
-class FileDownloader:
+class FilesDownloader:
     def __init__(self):
         self._address_root = None
         self._save_folder_path = None
