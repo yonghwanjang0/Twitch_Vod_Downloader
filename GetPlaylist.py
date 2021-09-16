@@ -11,8 +11,9 @@ class GetPlaylist:
         self.sig = None
         self.video_id = None
         self.playlist_path = None
+        self.subscribers_only = None
 
-    def set_video_id(self, video_id):
+    def set_video_id(self, video_id:str):
         # input type of video_id : string
         self.video_id = video_id
         self.data = ('{"operationName":"PlaybackAccessToken_Template",'
@@ -61,3 +62,14 @@ class GetPlaylist:
             except Exception as e:
                 count += 1
                 time.sleep(5)
+
+    def check_subscribers_only(self):
+        front_string = '''{"restricted_bitrates":'''
+        back_string = '''},"device_id"'''
+        front_index = self.token.find(front_string) + len(front_string)
+        back_index = self.token.find(back_string)
+        restricted = self.token[front_index:back_index]
+        if "[]" in restricted:
+            self.subscribers_only = False
+        else:
+            self.subscribers_only = True
