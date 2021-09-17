@@ -23,8 +23,8 @@ class CentralWidget(QWidget):
         self.duration_time_text = QLabel("")
         self.start_time_label = QLabel("Start Time : ")
         self.start_time_text = QLabel("")
-        self.quaility_label = QLabel("Quality : ")
-        self.quaility_text = QLabel("")
+        self.quality_label = QLabel("Quality : ")
+        self.quality_text = QLabel("")
         
         self.progress_bar = QProgressBar(self)
 
@@ -59,12 +59,12 @@ class CentralWidget(QWidget):
         infomation_box.addWidget(self.title_label, 0, 0)
         infomation_box.addWidget(self.duration_time_label, 1, 0)
         infomation_box.addWidget(self.start_time_label, 2, 0)
-        infomation_box.addWidget(self.quaility_label, 3, 0)
+        infomation_box.addWidget(self.quality_label, 3, 0)
 
         infomation_box.addWidget(self.title_text, 0, 1)
         infomation_box.addWidget(self.duration_time_text, 1, 1)
         infomation_box.addWidget(self.start_time_text, 2, 1)
-        infomation_box.addWidget(self.quaility_text, 3, 1)
+        infomation_box.addWidget(self.quality_text, 3, 1)
 
         # preview image + detailed information layout
         merged_infomation_box = QHBoxLayout()
