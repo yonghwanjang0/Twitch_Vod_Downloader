@@ -1,5 +1,4 @@
 from PyQt5.QtCore import *
-from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import *
 
 
@@ -14,9 +13,7 @@ class CentralWidget(QWidget):
         self.result_log_box.setReadOnly(True)
         self.result_log_box_label = QLabel("Download Log")
 
-        self.image_object = QPixmap()
-        self.preview_image = QLabel("")
-
+        self.preview_image = QLabel()
         self.title_label = QLabel("Title : ")
         self.title_text = QLabel("")
         self.duration_time_label = QLabel("Duration : ")
@@ -26,6 +23,8 @@ class CentralWidget(QWidget):
         self.quality_label = QLabel("Quality : ")
         self.quality_text = QLabel("")
         
+        self.progress_bar_label = QLabel("Progress Bar")
+        self.progress_bar_status = QLabel("")
         self.progress_bar = QProgressBar(self)
 
         self.input_value_box = QLineEdit(self)
@@ -71,6 +70,11 @@ class CentralWidget(QWidget):
         merged_infomation_box.addWidget(self.preview_image)
         merged_infomation_box.addLayout(infomation_box)
 
+        # progress bar layout
+        progress_bar_layout = QHBoxLayout()
+        progress_bar_layout.addWidget(self.progress_bar_label)
+        progress_bar_layout.addWidget(self.progress_bar_status)
+
         # input box
         input_layout = QVBoxLayout()
         input_layout.addWidget(self.input_value_box_label)
@@ -96,6 +100,7 @@ class CentralWidget(QWidget):
         layout.addWidget(self.result_log_box_label)
         layout.addWidget(self.result_log_box)
         layout.addLayout(merged_infomation_box)
+        layout.addLayout(progress_bar_layout)
         layout.addWidget(self.progress_bar)
         layout.addLayout(input_layout)
         layout.addLayout(folder_display_layout)
