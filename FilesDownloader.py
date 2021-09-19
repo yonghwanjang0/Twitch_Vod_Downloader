@@ -6,17 +6,17 @@ import asyncio
 
 class FilesDownloader:
     def __init__(self):
-        self._address_root = None
+        self._playlist = None
         self._save_folder_path = None
 
-    # root part at vod files url
+    # playlist object
     @property
-    def address_root(self):
-        return self._address_root
+    def playlist(self):
+        return self._playlist
 
-    @address_root.setter
-    def address_root(self, value):
-        self._address_root = value
+    @playlist.setter
+    def playlist(self, value:object):
+        self._playlist = value
 
     # temp files save folder path
     @property
@@ -24,12 +24,15 @@ class FilesDownloader:
         return self._save_folder_path
 
     @save_folder_path.setter
-    def save_folder_path(self, folder_path):
+    def save_folder_path(self, folder_path:str):
         self._save_folder_path = folder_path
 
     @staticmethod
     def get_requests(url, timeout=5):
-        current_file = requests.get(url, stream=True, timeout=timeout)
+        try:
+            current_file = requests.get(url, stream=True, timeout=timeout)
+        except Exception as e:
+            current_file = requests.get(url, stream=True, timeout=timeout)
 
         return current_file
 
@@ -40,9 +43,9 @@ class FilesDownloader:
             shutil.copyfileobj(current_file.raw, f)
 
     async def download_single_file(self, index):
-        return_value = [False, index]
+        return_value = [False, index, ""]
         try_count = 0
-        url = self.address_root + str(index) + ".ts"
+        url = self.playlist.segments[index].absolute_uri
         save_path = self.save_folder_path + str(index).zfill(8) + ".ts"
 
         current_file = self.get_requests(url)
@@ -53,11 +56,12 @@ class FilesDownloader:
                 measured_size = os.path.getsize(save_path)
                 origin_size = int(current_file.headers["Content-Length"])
                 if origin_size == measured_size:
-                    return_value = [True, index]
+                    return_value = [True, index, ""]
                     break
 
             else:
                 try_count += 1
+                return_value[2] = url
                 current_file = self.get_requests(url)
 
         return return_value
