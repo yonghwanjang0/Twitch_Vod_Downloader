@@ -30,6 +30,19 @@ class SizeCalculator:
         total_size = self.single_file_size * length
 
         return total_size
+    
+    @staticmethod
+    def convert_size_units(size:int):
+        giga = (1024 ** 3)
+        mega = (1024 ** 2)
+        if int(size / giga) >= 1:
+            convert = round((size / giga), 2)
+            result = (convert, "GB")
+        else:
+            convert = round((size / mega), 2)
+            result = (convert, "MB")
+        
+        return result
 
     def run(self, playlist_object):
         self.playlist = playlist_object
