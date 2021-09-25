@@ -12,6 +12,8 @@ class GetPlaylist:
         self.video_id = None
         self.playlist_path = None
         self.subscribers_only = None
+        self.json_parse = {}
+        self.delete_vod = None
 
     def set_video_id(self, video_id:str):
         # input type of video_id : string
@@ -30,13 +32,21 @@ class GetPlaylist:
                      '    __typename  }}","variables":{"isLive":false,"login":"",'
                      '"isVod":true,"vodID":"' + video_id + '","playerType":"embed"}}')
 
-    def get_token(self):
+    def get_data_json(self):
         path = "https://gql.twitch.tv/gql"
         result = self.get_loop(path, "Token")
-        result_parse = result.json()["data"]["videoPlaybackAccessToken"]
+        self.json_parse = result.json()["data"]["videoPlaybackAccessToken"]
 
-        self.token = result_parse["value"]
-        self.sig = result_parse["signature"]
+    def check_remove_video(self):
+        if self.json_parse is None:
+            self.delete_vod = True
+        else:
+            self.delete_vod = False
+
+    def get_token(self):
+        if self.delete_vod is False and self.json_parse:
+            self.token = self.json_parse["value"]
+            self.sig = self.json_parse["signature"]
 
     def get_playlist(self):
         path = ("http://usher.twitch.tv/vod/{0}?nauth={1}&nauthsig={2}"
@@ -73,3 +83,4 @@ class GetPlaylist:
             self.subscribers_only = False
         else:
             self.subscribers_only = True
+    
