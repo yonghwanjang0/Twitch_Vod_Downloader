@@ -66,16 +66,10 @@ QDialog {
 '''
 
 main_window_style = '''
-QMainWindow::separator {
-    background: yellow;
-    width: 10px;
-    height: 10px;
-}
-'''
-
-main_window_style = '''
 QMainWindow {
     background: white;
+    border: 2px solid rgb(131, 56, 236);
+    border-radius: 10px;
 }
 '''
 
