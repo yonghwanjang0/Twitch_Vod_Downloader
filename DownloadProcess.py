@@ -1,5 +1,5 @@
 from threading import Thread, Lock
-from Function import make_temp_string, infomation_text_for_log
+from Functions import make_temp_string, infomation_text_for_log
 from Worker.DownloadWorker import download_worker
 from Worker.UpdateWorker import update_worker
 from Worker.ForcedStopWorker import forced_stop_worker
