@@ -69,10 +69,9 @@ class FilesDownloader:
     async def bundle_of_downloads(self, index_list):
         task_list = []
         for index in index_list:
-            if index:
-                task = asyncio.ensure_future(
-                    self.download_single_file(index))
-                task_list.append(task)
+            task = asyncio.ensure_future(
+                self.download_single_file(index))
+            task_list.append(task)
         result = await asyncio.gather(*task_list)
 
         return result
