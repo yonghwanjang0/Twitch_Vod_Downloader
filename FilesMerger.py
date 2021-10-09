@@ -1,6 +1,6 @@
 import shutil
 import os
-from Function import check_percent
+from Functions import check_percent
 
 
 class FilesMerger:
