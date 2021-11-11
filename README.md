@@ -5,7 +5,6 @@ This source code makes for windows 10.
 
 ## Use
 
-
 ## requirements
 * PySide6
 * pytz
