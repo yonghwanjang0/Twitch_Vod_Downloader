@@ -9,9 +9,15 @@ This source code makes for windows 10.
 2. Twitch vod full url (e.g : https://www.twitch.tv/videos/42348230) or Vod ID (e.g 42348230) input to url field.
 (You possible use keyboard 'button 1' to shortcut url field.)
 
-3. Click 'Check Vod (C)' button. 
-(If the streamer has set the subscriber-only option to the vod, download is not possible.)
+3. Click 'Check Vod (C)' button.
+(If the streamer has set the subscriber-only option to the vod, download isn't possible.)
 
+4. If found vod information, click 'Download Start (F2)' button.
+(If there is not enough free disk space, the download will not start.)
+
+5. Wait to the Download Finish. (Downloader will do files download and merge.) (If you want to lock the download status, use the Download Status Lock (Ctrl + Q). (You won't be able to click Download Stop button.))
+
+6. File download finished.
 
 ## requirements
 * PySide6
