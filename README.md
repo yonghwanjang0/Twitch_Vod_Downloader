@@ -7,7 +7,7 @@ This source code makes for windows 10.
 1. Open the option dialog (F10), set 'Finally File Save Folder' and 'Temporary Files Save Folder'.
 
 2. Twitch vod full url (e.g : https://www.twitch.tv/videos/42348230) or Vod ID (e.g : 42348230) input to url field box.
-(You possible use keyboard 'button 1' to shortcut url field.)
+(You possible use keyboard 'button 1' to shortcut url field box.)
 
 3. Click 'Check Vod (C)' button.
 (If the streamer has set the subscriber-only option to the vod, download isn't possible.)
