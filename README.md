@@ -17,7 +17,7 @@ This source code makes for windows 10.
 
 5. Wait to the Download Finish. (The Downloader will download vod stream files and merge it into a single video file.) (If you want to lock the download status, use the Download Status Lock (Ctrl + Q). (You won't be able to click Download Stop button.))
 
-6. File download finished. 
+6. File download finished.
 
 ## requirements
 * PySide6
