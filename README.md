@@ -20,6 +20,7 @@ This source code makes for windows 10.
 6. File download finished. 
 
 ## ScreenShot
+<img src="https://user-images.githubusercontent.com/83168104/146208543-2ca7f494-bfbd-42a5-9e15-cc9bb337824e.png">
 <img src="https://user-images.githubusercontent.com/83168104/146045673-a5ba84b1-b4ff-4079-a975-5a027761283c.png">
 
 ## requirements
