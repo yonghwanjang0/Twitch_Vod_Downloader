@@ -27,3 +27,4 @@ This source code makes for windows 10.
 * PySide6
 * pytz
 * tzlocal
+* m3u8
