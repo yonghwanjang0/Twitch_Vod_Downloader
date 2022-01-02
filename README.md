@@ -26,5 +26,5 @@ This source code makes for windows 10.
 ## requirements
 * PySide6
 * pytz
-* tzlocal
+* tzlocal 
 * m3u8 
